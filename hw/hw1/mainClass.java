@@ -224,12 +224,26 @@ void drawAll()
 
 double totalArea()
 {
+   System.out.print("\n");
    double count = 0.0;
+   int index = 0 ;
    for (ListNode p = head; p != null; p=p.next)
    {
-	double area = p.info.area();
+        
+        double area = p.info.area();
 	count += area;
-        System.out.print(p.info.name + " : " + String.valueOf(area) + "\n\n\n");
+        
+        if (index%2 == 0)
+        {
+           System.out.print(p.info.name + " : " + String.valueOf(area) + "\n");
+           index += 1;
+        }
+        else
+        {
+           System.out.print(p.info.name + " : " + String.valueOf(area) + "\n\n");
+           index += 1;
+        }
+        
    }
    return count;
 }
@@ -247,16 +261,17 @@ public class mainClass
    public static void main(String[] args)
    {
       Picture p = new Picture();
-      p.add(new Triangle("FirstTriangle",5,5));
-      p.add(new Triangle("SecondTriangle",4,4));
-      p.add(new Circle("FirstCircle",5));
-      p.add(new Circle("SecondCircle", 4));
-      p.add(new Square("FirstSquare",5));
-      p.add(new Square("SecondSquare", 4));
-      p.add(new Rectangle("FirstRectangle",5,5));
-      p.add(new Rectangle("SecondRectangle",4,4));
+      p.add(new Triangle("FirstTriangle",7,3));
+      p.add(new Triangle("SecondTriangle",6,2));
+      p.add(new Circle("FirstCircle",7));
+      p.add(new Circle("SecondCircle", 6));
+      p.add(new Square("FirstSquare",7));
+      p.add(new Square("SecondSquare", 6));
+      p.add(new Rectangle("FirstRectangle",7,3));
+      p.add(new Rectangle("SecondRectangle",6,2));
       double totalArea = p.totalArea();
-      System.out.print("Total Area : " + String.valueOf(totalArea) + "\n");
+      System.out.print("Total : " + String.valueOf(totalArea));
+      System.out.print("\n");
       p.drawAll();  
    }
 }
