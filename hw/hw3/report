@@ -1,0 +1,38 @@
+2. [30] Short answer questions about your program in Problem 1:
+a. [5] What is the meaning of const after a member function prototype?
+b. [5] What happens if you use the default copy constructor for Vector?
+c. [5] What happens if you use the default assignment operator for Vector?
+d. [5] Why pass Vector by reference but make it const as with operator *?
+e. [5] Why are operators *, +, and << friends and not member functions?
+f. [5] Why does operator [] return a T & as opposed to a T?
+
+
+#2 Answers
+
+a. It means that objects called by these functions cannot be modified.
+
+b. The default copy constructor will only use shallow copy.
+
+c. The default assignment operator will point both vectors to the same data, instead of copying over and creating a new set of data.
+
+d. We want to pass by reference because it is much faster than pass by copy and we make it const to ensure that the argument is not changed.
+
+e. We want to call these functions outside of the class's scope while still maintaining access to the class's data members
+
+f. So we can use the expression on the left side of the assignment operator to allow for reassigning.
+
+
+#3 Answers
+
+1) Static
+
+"In Simple_Scoping Initially   m = 10"
+"In Q m = 6"
+"In Simple_Scoping after Q   m = 12"
+"In Simple_Scoping after P   m = 12"
+
+2) Dynamic
+"In Simple_Scoping Initially   m = 10"
+"In Q m = 12"
+"In Simple_Scoping after Q   m = 10"
+"In Simple_Scoping after P   m = 12"
