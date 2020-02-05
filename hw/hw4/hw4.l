@@ -38,7 +38,7 @@
 
 (defun mapping (L val)
 	(cond ((null L) nil)
-		((> (car (car L)) val) (cons (car (cdr (car L))) (mapping (cdr L) val)))
+		(( < (car (car L)) val) (cons (car (cdr (car L))) (mapping (cdr L) val)))
 		(t (mapping (cdr L) val))
 	)
 )
@@ -57,7 +57,7 @@
 	)
 )
 
-(defun is-pattern (pat str)
+(defun is-pattern? (pat str)
 	(cond ((null str) nil)
 		((equal pat str) str)
 		(t (is-pattern pat (cdr str)))	
