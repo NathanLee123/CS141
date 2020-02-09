@@ -50,11 +50,8 @@
 ;; This one is done, but you must write the functions it calls
 (defun my-apply (fn args alist)
     
-    (cond ((atom fn) fn)
-          (t args)
-    )
-    ;(cond ((atom fn) (my-apply-atom fn args alist))
-    ;      ( t (my-apply-lambda fn args alist)))
+    (cond ((atom fn) (my-apply-atom fn args alist))
+          ( t (my-apply-lambda fn args alist)))
 )
 
 ;; You need to write this one.
