@@ -57,7 +57,7 @@
 ;; Utility function for eval-cond and apply-lambda.  Evaluates each expression
 ;; in l and returns the value of the last expression
 (defun my-eval-list (l alist)
-    (cond (eq (cdr l) nil) ())
+
 )
 
 ;; You need to write this one.
@@ -66,9 +66,7 @@
 ;; new scoping context (i.e., that becomes the new alist for recursive
 ;; evaluation of the function body.  Return the value of the last 
 ;; expression in the body (using eval-list).
-    (cond ((eq fn (car (car alist)) t) (my-bind-formals (car (cdr (my-assoc fn alist))) ) (my-eval-list alist))
 
-    )
 )
 
 ;; You need to write this one.
@@ -81,9 +79,6 @@
 ;; e.g., (my-bind-formals '(a) '((add 1 b)) '((b . 10)))
 ;; will return ((a . 11) (b . 10))
 ;; Note there will be one actual parameter for each formal parameter.
-    (cond ((null formals) '())
-          (())
-
 
 )
 
