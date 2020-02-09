@@ -95,13 +95,13 @@
           ;; I wrote the first one, eq, for you, you write the rest
           
           ((eq fn 'car)
-            args
+            (car (car args))
           )
           ((eq fn 'cdr)
-            (cdr args)
+            (cdr (car args))
           )
           ((eq fn 'cons)
-            (cons (car args) (cdr args))
+            (cons (car (car args)) (cdr (car args)))
           )
           ((eq fn 'quote)
             args
