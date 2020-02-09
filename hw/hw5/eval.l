@@ -30,9 +30,12 @@
 
 ;; This one is done
 (defun my-eval (e alist)
-    (cond ((atom e) (my-eval-atom e alist))
-          (t (my-apply (car e) (cdr e) alist))
+    (cond ((atom e) e)
+          (t e)
     )
+    ;(cond ((atom e) (my-eval-atom e alist))
+    ;      (t (my-apply (car e) (cdr e) alist))
+    ;)
 )
 
 ;; You need to write this one.
