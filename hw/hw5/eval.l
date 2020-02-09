@@ -51,7 +51,7 @@
 (defun my-apply (fn args alist)
     
     (cond ((atom fn) fn)
-          (t 'a')
+          (t 'a)
     )
     ;(cond ((atom fn) (my-apply-atom fn args alist))
     ;      ( t (my-apply-lambda fn args alist)))
