@@ -57,10 +57,7 @@
 ;; Utility function for eval-cond and apply-lambda.  Evaluates each expression
 ;; in l and returns the value of the last expression
 (defun my-eval-list (l alist)
-    (cond ((null (car l)) nil)
-          ((atom (car l)) 
 
-    )
 )
 
 ;; You need to write this one.
