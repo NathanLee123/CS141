@@ -40,7 +40,7 @@
   (cond ((null alist) nil)
         ((eq e T) t)
         ((eq e nil) nil)
-        ((symbolp e) e)
+        ((symbolp e) (car e)
         (t (my-eval-atom e (cdr alist)))
     )
 ;; how do you evaluate an atom???
