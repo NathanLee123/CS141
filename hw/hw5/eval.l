@@ -98,7 +98,7 @@
             (car args)
           )
           ((eq fn 'cdr)
-            (cdr args)
+            (cdr (car args))
           )
           ((eq fn 'cons)
             (cons (car (car args)) (cdr (car args)))
