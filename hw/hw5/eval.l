@@ -37,10 +37,10 @@
 
 ;; You need to write this one.
 (defun my-eval-atom (e alist)
-  (cond ((null alist) nil)
+  (cond ((null alist) e)
         ((eq e T) t)
         ((eq e nil) nil)
-        ((symbolp e) (car e))
+        ((symbolp e) (quote e))
         (t (my-eval-atom e (cdr alist)))
     )
 ;; how do you evaluate an atom???
