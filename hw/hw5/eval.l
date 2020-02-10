@@ -41,7 +41,8 @@
         ((eq e nil) nil)
         ((symbolp e) e)
         ((eq (my-assoc e alist) nil) nil)
-        (t (cdr (my-assoc e alist)))
+        (t t)
+        ;(t (cdr (my-assoc e alist)))
     )
 ;; how do you evaluate an atom???
 ;; Remember there are special cases: T, NIL, ASYMBOL, 10, "Hello"
