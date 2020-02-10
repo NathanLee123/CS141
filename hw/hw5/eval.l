@@ -101,8 +101,7 @@
             (cdr (my-eval (car args) alist))
           )
           ((eq fn 'cons)
-            args
-            ;(cons (my-eval (car args) alist) (cdr (my-eval (car args) alist)))
+            (cons (my-eval (car args) alist) (cdr (my-eval (cdr args) alist)))
           )
           ((eq fn 'quote)
             (car args)
