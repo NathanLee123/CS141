@@ -104,7 +104,7 @@
             (cons (car (car args)) (cdr (car args)))
           )
           ((eq fn 'quote)
-            args
+            (car args)
           )
           ((eq fn 'setq) (my-eval-setq (car args) (cdr args)))
           ;; these are (nearly) done, but you must write the sub-functions
