@@ -39,7 +39,7 @@
 (defun my-eval-atom (e alist)
   (cond ((eq e T) t)
         ((eq e nil) nil)
-        ((symbolp e) e)
+        ((symbolp e) t)
         ((eq (my-assoc e alist) nil) nil)
         (t t)
         ;(t (cdr (my-assoc e alist)))
