@@ -37,7 +37,7 @@
 
 ;; You need to write this one.
 (defun my-eval-atom (e alist)
-  (cond ((null alist) (car e))
+  (cond ((null alist) e)
         ((eq e T) t)
         ((eq e nil) nil)
         ((eq e (car (car alist))) (cdr (my-assoc e alist)))
@@ -95,7 +95,7 @@
           ;; I wrote the first one, eq, for you, you write the rest
           
           ((eq fn 'car)
-            (car args)
+            (my-eval (car args))
           )
           ((eq fn 'cdr)
             (cadr args)
