@@ -95,7 +95,7 @@
           ;; I wrote the first one, eq, for you, you write the rest
           
           ((eq fn 'car)
-            fn
+            (car (car args))
           )
           ((eq fn 'cdr)
             (cadr args)
