@@ -95,7 +95,7 @@
           ;; I wrote the first one, eq, for you, you write the rest
           
           ((eq fn 'car)
-            (my-eval (car args) alist)
+            (car (car args))
           )
           ((eq fn 'cdr)
             (cadr args)
@@ -104,7 +104,7 @@
             (cons (car (car args)) (cdr (car args)))
           )
           ((eq fn 'quote)
-            args
+            'a
           )
           ((eq fn 'setq) (my-eval-setq (car args) (cdr args)))
           ;; these are (nearly) done, but you must write the sub-functions
