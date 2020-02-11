@@ -37,17 +37,16 @@
 
 ;; You need to write this one.
 (defun my-eval-atom (e alist)
-  (cond ((null alist) e)
-        ((eq e T) t)
+  (cond ((eq e T) t)
         ((eq e nil) nil)
-        ((symbolp e) e)
-        (t (my-eval-atom e (cdr alist)))
+        ((symbolp e) (my-eval (car (cdr (my-assoc e alist))) alist))
+        ((eq (my-assoc e alist) nil) nil)
+        ;(t (cdr (my-assoc e alist)))
     )
 )
 
 ;; This one is done, but you must write the functions it calls
 (defun my-apply (fn args alist)
-    
     (cond ((atom fn) (my-apply-atom fn args alist))
           ( t (my-apply-lambda fn args alist)))
 )
@@ -55,8 +54,11 @@
 ;; You need to write this one.
 ;; Utility function for eval-cond and apply-lambda.  Evaluates each expression
 ;; in l and returns the value of the last expression
-(defun my-eval-list (l alist)
-
+(defun my-eval-list (l  alist)
+    ;(my-eval (car l) alist)
+    (cond ((null (cdr l)) (my-eval (car l) alist))
+          (t (my-eval (car l) alist) (my-eval-list (cdr l) alist))
+    )
 )
 
 ;; You need to write this one.
@@ -109,14 +111,14 @@
           ((eq fn 'cond) (my-eval-cond args alist))
           ((eq fn 'defun) (my-eval-defun args alist))
           ((eq fn 'eval) (my-eval (my-eval (car args) alist) alist))
-          (T (my-apply ;; get the lambda from the alist, 
-                       args alist))
+          (T (my-apply (my-assoc fn alist) args alist))
     )
 )
 
 
 ;; You need to write this one.
 (defun my-eval-setq (var val)
+;; calls my eval on the val
 ;; just push a new association of the var and its evaluated val onto the
 ;; global alist
     (setq global-alist (cons (cons var val) global-alist))
@@ -124,7 +126,11 @@
 
 ;; You need to write this one.  You should know how cond works at this point.
 (defun my-eval-cond (clauses alist)
-
+    ;(my-eval (car (cdr (car clauses))) alist)
+    (cond ((null (car clauses)) nil)
+          ((eq (my-eval-list (car clauses) alist) t) (my-eval (car (cdr (car clauses))) alist))
+          (t (my-eval-cond (cdr clauses) alist))
+    )
 )
 
 ;; You need to write this one.
