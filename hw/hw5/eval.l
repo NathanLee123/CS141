@@ -57,7 +57,10 @@
 ;; Utility function for eval-cond and apply-lambda.  Evaluates each expression
 ;; in l and returns the value of the last expression
 (defun my-eval-list (l  alist)
-    (my-eval (car l) alist)
+    ;(my-eval (car l) alist)
+    (cond ((null (cdr l)) (my-eval (car l) alist))
+          (t (my-eval (car l) alist) (my-eval-list (cdr l) alist))
+    )
 )
 
 ;; You need to write this one.
@@ -110,8 +113,7 @@
           ((eq fn 'cond) (my-eval-cond args alist))
           ((eq fn 'defun) (my-eval-defun args alist))
           ((eq fn 'eval) (my-eval (my-eval (car args) alist) alist))
-          (T (my-apply ;; get the lambda from the alist, 
-                       args alist))
+          (T (my-apply (my-assoc fn alist) args alist))
     )
 )
 
