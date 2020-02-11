@@ -57,7 +57,7 @@
 ;; Utility function for eval-cond and apply-lambda.  Evaluates each expression
 ;; in l and returns the value of the last expression
 (defun my-eval-list (l  alist)
-
+    (my-eval (car l) alist)
 )
 
 ;; You need to write this one.
@@ -126,11 +126,10 @@
 
 ;; You need to write this one.  You should know how cond works at this point.
 (defun my-eval-cond (clauses alist)
-    clauses
     ;(my-eval (car (cdr (car clauses))) alist)
-    ;(cond ((eq (my-eval-list (car clauses) alist) t) (car (cdr (car clauses))))
-    ;
-    ;)
+    (cond ((eq (my-eval-list (car clauses) alist) t) (my-eval (car (cdr (car clauses)))))
+
+    )
 )
 
 ;; You need to write this one.
