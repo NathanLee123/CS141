@@ -127,9 +127,10 @@
 
 ;; You need to write this one.  You should know how cond works at this point.
 (defun my-eval-cond (clauses alist)
-    (cond ((eq (my-eval-list (car clauses) alist) t) (my-eval (car (cdr (car clauses))) alist))
-
-    )
+    (car (cdr (car clauses)))
+    ;(cond ((eq (my-eval-list (car clauses) alist) t) (my-eval (car (cdr (car clauses))) alist))
+;
+ ;   )
 )
 
 ;; You need to write this one.
