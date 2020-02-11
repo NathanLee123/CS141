@@ -41,7 +41,6 @@
         ((eq e nil) nil)
         ((symbolp e) (my-eval (car (cdr (my-assoc e alist))) alist))
         ((eq (my-assoc e alist) nil) nil)
-        (t t)
         ;(t (cdr (my-assoc e alist)))
     )
 ;; how do you evaluate an atom???
@@ -50,7 +49,6 @@
 
 ;; This one is done, but you must write the functions it calls
 (defun my-apply (fn args alist)
-    
     (cond ((atom fn) (my-apply-atom fn args alist))
           ( t (my-apply-lambda fn args alist)))
 )
@@ -58,7 +56,7 @@
 ;; You need to write this one.
 ;; Utility function for eval-cond and apply-lambda.  Evaluates each expression
 ;; in l and returns the value of the last expression
-(defun my-eval-list (l alist)
+(defun my-eval-list (l  alist)
 
 )
 
@@ -120,9 +118,10 @@
 
 ;; You need to write this one.
 (defun my-eval-setq (var val)
+  ;; calls my eval on the val
 ;; just push a new association of the var and its evaluated val onto the
 ;; global alist
-    (setq global-alist (cons (cons var val) global-alist))
+    (setq global-alist (cons (cons var (my-eval val global-alist) global-alist)))
 )
 
 ;; You need to write this one.  You should know how cond works at this point.
