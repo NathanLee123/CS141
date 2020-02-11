@@ -129,9 +129,9 @@
 (defun my-eval-cond (clauses alist)
     
     ;(my-eval (car (cdr (car clauses))) alist)
-    (cond ((null clauses) nil)
+    (cond ((null (car clauses)) nil)
         ((eq (my-eval-list (car clauses) alist) t) clauses)
-        
+
     )
 )
 
