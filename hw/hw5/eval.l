@@ -43,8 +43,6 @@
         ((symbolp e) e)
         (t (my-eval-atom e (cdr alist)))
     )
-;; how do you evaluate an atom???
-;; Remember there are special cases: T, NIL, ASYMBOL, 10, "Hello"
 )
 
 ;; This one is done, but you must write the functions it calls
