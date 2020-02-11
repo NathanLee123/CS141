@@ -126,7 +126,7 @@
 
 ;; You need to write this one.  You should know how cond works at this point.
 (defun my-eval-cond (clauses alist)
-    (cond (t clauses))
+    (car clauses)
 )
 
 ;; You need to write this one.
