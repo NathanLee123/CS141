@@ -58,7 +58,7 @@
 ;; in l and returns the value of the last expression
 (defun my-eval-list (l  alist)
     (cond ((null (cdr l)) (my-eval (car (car l)) alist))
-          (t (my-eval (car (car l))))
+          (t (my-eval (car (car l)) alist))
     )
 )
 
