@@ -129,10 +129,7 @@
 (defun my-eval-cond (clauses alist)
     
     ;(my-eval (car (cdr (car clauses))) alist)
-    (cond ((null (car clauses)) nil)
-        ((eq (my-eval-list (car clauses) alist) t) clauses)
-
-    )
+    (my-eval-list clauses alist)
 )
 
 ;; You need to write this one.
