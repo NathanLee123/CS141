@@ -121,7 +121,7 @@
   ;; calls my eval on the val
 ;; just push a new association of the var and its evaluated val onto the
 ;; global alist
-    (setq global-alist (cons (cons var (my-eval val global-alist) global-alist)))
+    (setq global-alist (cons (cons var (my-eval val global-alist)) global-alist))
 )
 
 ;; You need to write this one.  You should know how cond works at this point.
