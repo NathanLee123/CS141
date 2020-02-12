@@ -55,8 +55,8 @@
 ;; Utility function for eval-cond and apply-lambda.  Evaluates each expression
 ;; in l and returns the value of the last expression
 (defun my-eval-list (l  alist)
-
-    (cond ((null (cdr l)) (my-eval (car l) alist))
+    ;(my-eval (car l) alist)
+    (cond ((null (cdr l)) t)
           (t (my-eval (car l) alist) (my-eval-list (cdr l) alist))
     )
 )
@@ -129,7 +129,7 @@
     ;(my-eval-list (car clauses) alist) 
     ;(my-eval (car (cdr (car clauses))) alist)
     (cond ((null clauses) nil)
-          ((eq (my-eval-list (car clauses) alist) t) 'fuck)
+          ((eq (my-eval-list (car clauses) alist) t) (my-eval (car (cdr (car clauses))) alist))
           (t (my-eval-cond (cdr clauses) alist))
     )
 )
