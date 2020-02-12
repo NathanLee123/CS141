@@ -125,7 +125,7 @@
 
 ;; You need to write this one.  You should know how cond works at this point.
 (defun my-eval-cond (clauses alist)
-    (car (car clauses))
+    (my-eval (car (car clauses)) alist)
 
     ;(my-eval-list (car (car clauses)) alist)
 
