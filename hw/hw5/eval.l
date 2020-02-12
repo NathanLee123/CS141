@@ -128,6 +128,7 @@
 
     (cond 
         ((eq (my-eval-list (car (car clauses)) alist) t) (my-eval (car (cdr (car clauses))) alist))
+        (t (my-eval-list (car (car clauses)) alist))
     )
 
     ;(cond ((null clauses) nil)
