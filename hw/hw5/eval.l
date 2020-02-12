@@ -40,6 +40,7 @@
   (cond ((eq e T) t)
         ((eq e nil) nil)
         ((symbolp e) (my-eval (car (cdr (my-assoc e alist))) alist))
+        ((numberp e) e)
         ((eq (my-assoc e alist) nil) nil)
         ;(t (cdr (my-assoc e alist)))
     )
