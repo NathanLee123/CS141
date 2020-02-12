@@ -69,7 +69,7 @@
 ;; evaluation of the function body.  Return the value of the last 
 ;; expression in the body (using eval-list).
     ;(my-eval-list (cdr fn) (my-bind-formals (car fn) args alist))
-    
+
 )
 
 ;; You need to write this one.
@@ -131,7 +131,7 @@
 (defun my-eval-cond (clauses alist)
 
     (cond ((null clauses) nil)
-          ((eq (car clauses) t) (my-eval (cdr clauses) alist))
+          ;((eq (car clauses) t) (my-eval (cdr clauses) alist))
           ((eq (my-eval-list (car (car clauses)) alist) t) (my-eval (car (cdr (car clauses))) alist)) 
           (t (my-eval-cond (cdr clauses) alist))
     )
