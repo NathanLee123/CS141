@@ -114,7 +114,7 @@
           ((eq fn 'cond) (my-eval-cond args alist))
           ((eq fn 'defun) (my-eval-defun args alist))
           ((eq fn 'eval) (my-eval (my-eval (car args) alist) alist))
-          (T (my-apply (cdr (my-assoc fn alist)) args alist))
+          ;(T (my-apply (cdr (my-assoc fn alist)) args alist))
     )
 )
 
@@ -131,7 +131,7 @@
 (defun my-eval-cond (clauses alist)
 
     (cond ((null clauses) nil)
-          ;((eq (car clauses) t) (my-eval (cdr clauses) alist))
+          ((eq (car clauses) t) (my-eval (cdr clauses) alist))
           ((eq (my-eval-list (car (car clauses)) alist) t) (my-eval (car (cdr (car clauses))) alist)) 
           (t (my-eval-cond (cdr clauses) alist))
     )
