@@ -66,7 +66,7 @@
 ;; new scoping context (i.e., that becomes the new alist for recursive
 ;; evaluation of the function body.  Return the value of the last 
 ;; expression in the body (using eval-list).
-
+    (my-eval-list (cdr fn) (my-bind-formals (car fn) args alist))
 )
 
 ;; You need to write this one.
@@ -79,7 +79,8 @@
 ;; e.g., (my-bind-formals '(a) '((add 1 b)) '((b . 10)))
 ;; will return ((a . 11) (b . 10))
 ;; Note there will be one actual parameter for each formal parameter.
-
+    (cond ((null (cdr formals)) (cons (car formals) (cons (car actuals) nil)))
+          (t (cons (my-bind-formals (cdr formals) (cdr actuals) alist) (cons (cons (car formals) (cons (car actuals) nil)) alist))))
 )
 
 ;; You need to write this one.  Handle the primitives as special cases, then
@@ -110,7 +111,7 @@
           ((eq fn 'cond) (my-eval-cond args alist))
           ((eq fn 'defun) (my-eval-defun args alist))
           ((eq fn 'eval) (my-eval (my-eval (car args) alist) alist))
-          (T (my-apply (my-assoc fn alist) args alist))
+          (T (my-apply (cdr (my-assoc fn alist)) args alist))
     )
 )
 
