@@ -67,7 +67,8 @@
 ;; new scoping context (i.e., that becomes the new alist for recursive
 ;; evaluation of the function body.  Return the value of the last 
 ;; expression in the body (using eval-list).
-    (my-eval-list (cdr (car fn)) (my-bind-formals (car fn) args alist))
+    (cdr (car fn))
+    ;(my-eval-list (cdr (car fn)) (my-bind-formals (car fn) args alist))
 
 )
 
