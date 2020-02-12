@@ -82,8 +82,8 @@
 ;; e.g., (my-bind-formals '(a) '((add 1 b)) '((b . 10)))
 ;; will return ((a . 11) (b . 10))
 ;; Note there will be one actual parameter for each formal parameter.
-    (cond ((null (cdr formals)) (cons (car formals) (cons (car actuals) nil)))
-          (t (cons (my-bind-formals (cdr formals) (cdr actuals) alist) (cons (cons (car formals) (cons (car actuals) nil)) alist))))
+    ;(cond ((null (cdr formals)) (cons (car formals) (cons (car actuals) nil)))
+    ;      (t (cons (my-bind-formals (cdr formals) (cdr actuals) alist) (cons (cons (car formals) (cons (car actuals) nil)) alist))))
 )
 
 ;; You need to write this one.  Handle the primitives as special cases, then
