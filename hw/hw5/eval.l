@@ -56,9 +56,10 @@
 ;; in l and returns the value of the last expression
 (defun my-eval-list (l  alist)
     ;(my-eval (car l) alist)
-    (cond ((null (cdr l)) (my-eval (car l) alist))
-          (t (my-eval (car l) alist) (my-eval-list (cdr l) alist))
-    )
+    (car l)
+    ;(cond ((null (cdr l)) (my-eval (car l) alist))
+    ;      (t (my-eval (car l) alist) (my-eval-list (cdr l) alist))
+    ;)
 )
 
 ;; You need to write this one.
@@ -128,8 +129,8 @@
 (defun my-eval-cond (clauses alist)
     ;(my-eval-list (car clauses) alist) 
     clauses
-    ;(cond ((null clauses) nil)
-    ;      ((eq (my-eval-list (car clauses) alist) t) (my-eval (car (cdr (car clauses))) alist))
+    (cond ((null clauses) nil)
+          ((eq (my-eval-list (car clauses) alist) t) (my-eval (car (cdr (car clauses))) alist))
     ;      (t (my-eval-cond (cdr clauses) alist))
     ;)
 )
