@@ -22,7 +22,8 @@ d(X,0):- number(X).
 d(x,1).
 d(-x,-1).
 d(X^0,0).
-d(X^N, N*X^M*DX):- N >= 1, M is N - 1, d(X,DX).
+d(X^N, N*X^M*DX):- N > 2, M is N - 1, d(X,DX).
+d(X^N, N*X).
 d(X1 * X2, X1*DX1 + X2*DX2):- d(X1,DX1), d(X2,DX2).
 d(X1 + X2, DX1 + DX2):- d(X1,DX1), d(X2,DX2).
 d(X1-X2, DX1-DX2):- d(X1,DX1), d(X2,DX2).
