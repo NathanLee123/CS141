@@ -14,9 +14,8 @@ door_between(e,c).
 path_from(X,X,[]).
 path_from(S,D,R):- path(S,D,L,R).
 
-path(X,X,[],R):- R = [X].
-path(X,X,L,R):- R = [X|L].
-path(S,D,L,R):- (L = [] -> NewL = [S]; NewL = [S|L]),(door_between(S,X); door_between(X,S)) , \+member(X,NewL), path(X,D,NewL,R). 
+path(X,X,L,R):- append(L,[X],R).
+path(S,D,L,R):- (L = [] -> NewL = [S]; append(L,[S],NewL)) ,(door_between(S,X); door_between(X,S)) , \+member(X,NewL), path(X,D,NewL,R). 
 
 
 female(emily).
