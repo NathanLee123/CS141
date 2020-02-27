@@ -22,12 +22,18 @@ d(X,0):- number(X).
 d(x,1).
 d(-x,-1).
 d(X^0,0).
-d(X^N, N*X^M*DX):- N > 2, M is N - 1, d(X,DX).
-d(X^N, N*X).
-d(X1 * X2, X1*DX1 + X2*DX2):- d(X1,DX1), d(X2,DX2).
-d(X1 + X2, DX1 + DX2):- d(X1,DX1), d(X2,DX2).
-d(X1-X2, DX1-DX2):- d(X1,DX1), d(X2,DX2).
+d(X^1, 1).
+d(X^2, 2*X).
+d(C * x, C).
+d(x^N, DX):- M is N -1, (N > 0 -> DX = N*x^M ; NewM is -1 * M, DX = N/x^NewM ). 
+d(X1 * X^N, DX):- DX1 is X1 * N, Temp is N-1, (Temp = 1 -> DX2 = X ;DX2 = X^Temp), DX = DX1 * DX2. 
+d(X1+X2-X3+X4-X5,DX):- d(X1,DX1),d(X2,DX2),d(X3,DX3),d(X4,DX4),d(X5,DX5),check(DX5,D5), DX = DX1 + DX2 - DX3 + DX4 + D5.
+d(X1+X2,DX1 + DX2 ):- d(X1,DX1),d(X2,DX2).
+d(X1/X2,DX):- d(X2^(-1),DX). 
 d(-(X),DX):- d((-1)*X,DX).
+
+check(X1/X2, X3/X2):- X3 is (-1) * X1.
+
 
 
 female(emily).
