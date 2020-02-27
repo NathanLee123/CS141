@@ -17,6 +17,17 @@ path_from(S,D,R):- path(S,D,L,R).
 path(X,X,L,R):- append(L,[X],R).
 path(S,D,L,R):- (L = [] -> NewL = [S]; append(L,[S],NewL)) ,(door_between(S,X); door_between(X,S)) , \+member(X,NewL), path(X,D,NewL,R). 
 
+deriv(X,Y):- d(X,Y).
+d(X,0):- number(X).
+d(x,1).
+d(-x,-1).
+d(X^0,0).
+d(X^N, N*X^M*DX):- N >= 1, M is N - 1, d(X,DX).
+d(X1 * X2, X1*DX1 + X2*DX2):- d(X1,DX1), d(X2,DX2).
+d(X1 + X2, DX1 + DX2):- d(X1,DX1), d(X2,DX2).
+d(X1-X2, DX1-DX2):- d(X1,DX1), d(X2,DX2).
+d(-(X),DX):- d((-1)*X,DX).
+
 
 female(emily).
 female(heidi).
@@ -46,9 +57,10 @@ male(mark).
 male(fred).
 
 
-party_seating(L):- seating(L,0).
-seating(_,10).
-seating(L,R):- [H|_] = L,  (R = 0 -> female(G), R is 1 , seating([G|L],R); R is R + 1, (female(H) -> male(M), speaks(M,Lang), speaks(H,Lang), seating([M|L],R) ; female(G),speaks(G,Lang),speaks(H,Lang),seating([G|L],R))).
+party_seating(L):- seating(L,S,0).
+seating(L,S,10).
+seating(L,S,R):- (R = 0 -> female(G), append([G],[],NewL), seating(NewL,S,R+1); [H|T] = L,(female(H) -> (male(M),\+member(M,L),speaks(M,Lang),speaks(H,Lang)), append([M],L,NewL), seating(NewL,S,R+1); (female(G),\+member(G,L),speaks(G,Lang),speaks(H,Lang)), append([G],L,NewL), seating(NewL,S,R+1))).
+
 
 
 
