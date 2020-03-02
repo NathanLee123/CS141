@@ -12,7 +12,12 @@ class ResourceManager {
 					isFree[i] = false;
 					return i;
 				}
-			this.wait(); // block until someone releases Resource
+			try{
+				this.wait(); // block until someone releases Resource
+			}
+			catch(InterruptedException){
+				continue
+			}
 		}
 	}
 	synchronized void release( int index ) {
