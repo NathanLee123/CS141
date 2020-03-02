@@ -1,3 +1,4 @@
+package src;
 class ResourceManager {
 	boolean isFree[];
 	ResourceManager(int numberOfItems) {
