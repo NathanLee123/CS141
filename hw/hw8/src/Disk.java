@@ -1,5 +1,6 @@
 import java.lang.StringBuffer;
 import java.util.concurrent.Semaphore;
+import FileInfo
 class Disk{
 	static final int NUM_SECTORS = 1024;
 	Semaphore semaphore = new Semaphore(1,true);
