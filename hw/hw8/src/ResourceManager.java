@@ -15,7 +15,7 @@ class ResourceManager {
 			try{
 				this.wait(); // block until someone releases Resource
 			}
-			catch(InterruptedException){
+			catch(InterruptedException e){
 				continue;
 			}
 		}
