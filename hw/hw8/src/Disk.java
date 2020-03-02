@@ -1,6 +1,5 @@
-import java.lang.StringBuffer
-import java.util.concurrent
-import Thread
+import java.lang.StringBuffer;
+import java.util.concurrent;
 class Disk{
 	staic final int NUM_SECTORS = 1024;
 	Semaphore semaphore = Semaphore(1,True);
