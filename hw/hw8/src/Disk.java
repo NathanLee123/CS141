@@ -1,5 +1,5 @@
 import java.lang.StringBuffer;
-import java.util.concurrent;
+import java.util.concurrent.Semaphore;
 class Disk{
 	static final int NUM_SECTORS = 1024;
 	Semaphore semaphore = Semaphore(1,True);
