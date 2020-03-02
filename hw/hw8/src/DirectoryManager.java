@@ -1,4 +1,4 @@
-import java.util;
+import java.util.Hashtable;
 class DirectoryManager {
 	private Hashtable<String, FileInfo> T = 
 						new Hashtable<String, FileInfo>();
