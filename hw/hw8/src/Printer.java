@@ -1,3 +1,3 @@
 class Printer {
-	void print(StringBuffer data);  // call sleep
+	void print(StringBuffer data){}  // call sleep
 }
