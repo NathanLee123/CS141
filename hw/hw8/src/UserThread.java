@@ -8,7 +8,12 @@ class UserThread{
 	BufferedReader buffer;
 	UserThread(String newUser){
 		user = newUser;
-		buffer = new BufferedReader(new FileReader("hw8/resources/" + newUser));
+		try{
+			buffer = new BufferedReader(new FileReader("../resources/" + newUser));
+		}
+		catch(FileNotFoundException e){
+			System.out.println("File Not Found")
+		}
 	}
 
 	void start(){
