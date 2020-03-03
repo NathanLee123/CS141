@@ -9,7 +9,7 @@ public class Main{
 		ArrayList UserList = new ArrayList();
 		for (int i = 1; i < 1 + NumUsers; i++)
 		{
-			String file = "~/cs141/hw/hw8/inputs" + args[i];
+			String file = "/home/namhoonl/cs141/hw/hw8/inputs" + args[i];
 			UserThread user = new UserThread(args[i],file);
 			user.start();
 		}
