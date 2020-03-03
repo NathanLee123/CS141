@@ -1,7 +1,7 @@
 package src;
-import java.lang.StringBuffer;
-import java.lang.Thread;
-import java.io.BufferedReader;
+import java.lang.*;
+import java.lang.*;
+import java.io.*;
 class UserThread{
 	StringBuffer CurrentLine = new StringBuffer();
 	String user;
