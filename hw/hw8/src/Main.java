@@ -9,7 +9,7 @@ public class Main{
 
 		for (int i = 1; i < 1 + NumUsers; i++)
 		{
-			System.out.println(args.length);
+			System.out.println(args[i]);
 		}
 	}
 }
