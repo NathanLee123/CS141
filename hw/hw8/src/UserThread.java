@@ -12,12 +12,17 @@ class UserThread{
 			buffer = new BufferedReader(new FileReader("../resources/" + newUser));
 		}
 		catch(FileNotFoundException e){
-			System.out.println("File Not Found");
+			System.out.println("FileNotFoundException");
 		}
 	}
 
 	void start(){
-		System.out.println(buffer.readLine());
+		try{
+			System.out.println(buffer.readLine());
+		}
+		catch(IOException e){
+			System.out.println("IOException")
+		}
 	}
 
 }
