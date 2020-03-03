@@ -6,7 +6,7 @@ class UserThread{
 	StringBuffer CurrentLine = new StringBuffer();
 	String user;
 	BufferedReader buffer;
-	UserThread(String newUser, File file){
+	UserThread(String newUser, String file){
 		user = newUser;
 		try{
 			buffer = new BufferedReader(new FileReader(file));
