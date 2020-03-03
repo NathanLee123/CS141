@@ -2,7 +2,6 @@ package src;
 import java.lang.*;
 import java.lang.*;
 import java.io.*;
-
 class UserThread{
 	StringBuffer stringbuffer = new StringBuffer();
 	String user;
@@ -20,7 +19,7 @@ class UserThread{
 	void start(){
 		try{
 			stringbuffer = buffer.readLine();
-			 String[] interpret = stringbuffer.toString().split();
+			String interpret = stringbuffer.toString().split();
 			if(interpret[0] == ".save"){
 				System.out.println("Saving");
 			}
