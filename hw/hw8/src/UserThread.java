@@ -9,7 +9,7 @@ class UserThread{
 	UserThread(String newUser){
 		user = newUser;
 		try{
-			buffer = new BufferedReader(new FileReader("../resources/" + newUser));
+			buffer = new BufferedReader(new FileReader("../inputs/" + newUser));
 		}
 		catch(FileNotFoundException e){
 			System.out.println("FileNotFoundException");
