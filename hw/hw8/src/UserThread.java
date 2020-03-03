@@ -21,7 +21,7 @@ class UserThread{
 			System.out.println(buffer.readLine());
 		}
 		catch(IOException e){
-			System.out.println("IOException")
+			System.out.println("IOException");
 		}
 	}
 
