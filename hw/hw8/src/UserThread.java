@@ -21,7 +21,7 @@ class UserThread{
 			stringbuffer = buffer.readLine();
 			String interpret = stringbuffer.toString().split();
 			if(interpret[0] == ".save"){
-				continue;
+				System.out.println("Saving");
 			}
 
 		}
