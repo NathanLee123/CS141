@@ -20,9 +20,7 @@ class UserThread{
 		try{
 			stringbuffer = new StringBuffer(buffer.readLine());
 			String[] interpret = stringbuffer.toString().split(" ");
-			if(interpret[0] == ".save"){
-				System.out.println("Saving");
-			}
+			System.out.println(stringbuffer);
 
 		}
 		catch(IOException e){
