@@ -12,7 +12,7 @@ class UserThread{
 	}
 
 	void start(){
-		System.out.println(buffer.readLine())
+		System.out.println(buffer.readLine());
 	}
 
 }
