@@ -9,5 +9,7 @@ class Disk{
 	void write(int sector, StringBuffer data){
 
 	}
-	void read(int sector, StringBuffer data){}
+	void read(int sector, StringBuffer data){
+
+	}
 }

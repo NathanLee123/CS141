@@ -3,7 +3,7 @@ import java.lang.*;
 import java.lang.*;
 import java.io.*;
 class UserThread{
-	StringBuffer CurrentLine = new StringBuffer();
+	StringBuffer stringbuffer = new StringBuffer();
 	String user;
 	BufferedReader buffer;
 	UserThread(String newUser, String file){
@@ -18,7 +18,12 @@ class UserThread{
 
 	void start(){
 		try{
-			System.out.println(buffer.readLine());
+			stringbuffer = buffer.readLine();
+			String interpret = stringbuffer.toString().split()
+			if(interpret[0] == ".save"){
+				continue;
+			}
+
 		}
 		catch(IOException e){
 			System.out.println("IOException");
