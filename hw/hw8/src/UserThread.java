@@ -6,10 +6,10 @@ class UserThread{
 	StringBuffer CurrentLine = new StringBuffer();
 	String user;
 	BufferedReader buffer;
-	UserThread(String newUser){
+	UserThread(String newUser, File file){
 		user = newUser;
 		try{
-			buffer = new BufferedReader(new FileReader("../inputs/" + newUser));
+			buffer = new BufferedReader(new FileReader(file));
 		}
 		catch(FileNotFoundException e){
 			System.out.println("FileNotFoundException");
