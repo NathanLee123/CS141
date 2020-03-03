@@ -4,4 +4,4 @@ build: src/*.java
 	jar cfm 141OS.jar src/MANIFEST.MF src/*.class
 
 run:
-	java -jar ~/cs141/hw/hw8/1410S.jar -3 USER1 USER2 USER3 -2 -3
+	java -jar 1410S.jar -3 USER1 USER2 USER3 -2 -3
