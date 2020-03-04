@@ -53,9 +53,14 @@ class UserThread extends Thread{
 
 	void writeDisk(FileInfo file, String name){
 		while(stringbuffer.equals(".end") == false){
-			stringbuffer = new StringBuffer(buffer.readLine());
-			diskManager.disks[file.diskNumber].write(file.startingSector,stringbuffer);
-			file.fileLength++;
+			try{
+				stringbuffer = new StringBuffer(buffer.readLine());
+				diskManager.disks[file.diskNumber].write(file.startingSector,stringbuffer);
+				file.fileLength++;
+			}
+			catch(IOException e){
+				System.out.println("IOException");
+			}
 		}
 
 		directoryManager.enter(new StringBuffer(name),file);
