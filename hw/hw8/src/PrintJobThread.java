@@ -18,6 +18,7 @@ class PrintJobThread extends Thread{
 			line = diskManager.disks[file.diskNumber].read(file.startingSector+i);
 			printerManager.printers[printerIndex].print(line);
 		}
+		printerManager.release(printerIndex);
 	}
 
 }
