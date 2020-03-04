@@ -96,8 +96,15 @@ class UserThread extends Thread{
 	void processPrint(String name){
 		System.out.println("Printing " + name);
 		StringBuffer fileName = new StringBuffer(name);
-		PrintJobThread p = new PrintJobThread(diskManager, printerManager,directoryManager, fileName);
+		int printerIndex = printerManager.request();
+		BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex+1)));
+		file = directoryManager.lookup(fileName);
+		Disk disk = diskManager.disks[file.diskNumber];
+		Printer printer = printerManager.printers[printerIndex];
+		PrintJobThread p = new PrintJobThread(printer,disk,file, out);
 		p.start();
+		printerManager.release(printerIndex);
+
 	}
 
 }
