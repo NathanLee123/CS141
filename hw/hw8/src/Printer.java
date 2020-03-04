@@ -7,7 +7,7 @@ class Printer {
 	}
 	void print(BufferedWriter out, StringBuffer data){
 		System.out.println("Printing to PRINTER"+Integer.toString(id));
-		System.out.println("Data printing: " + data.toString())
+		System.out.println("Data printing: " + data.toString());
 		try{
 			out.write(data.toString(),0,data.length());
 			out.newLine();
