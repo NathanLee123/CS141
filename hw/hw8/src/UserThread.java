@@ -17,7 +17,7 @@ class UserThread extends Thread{
 		}
 	}
 
-	void start(){
+	public void start(){
 		processCommandLines();
 
 	}
@@ -29,7 +29,7 @@ class UserThread extends Thread{
 			String[] interpret = stringbuffer.toString().split(" ");
 		if(interpret[0].equals(".save")){
 				int diskIndex = os141.diskManager.request();
-				print(diskIndex);
+				System.out.println(diskIndex);
 			}
 
 		}
