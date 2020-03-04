@@ -1,4 +1,5 @@
 package src;
+statoc Os141 os141;
 
 class Os141 {
 	DiskManager diskManager;
@@ -10,6 +11,10 @@ class Os141 {
 	int NUM_USERS;
 	int NUM_DISKS;
 	int NUM_PRINTERS;
+
+	public static void main(String args[]){
+		os141 = new Os141(args);
+	}
 
 	Os141(String args[]){
 		NUM_USERS = Character.getNumericValue(args[0].charAt(1));
