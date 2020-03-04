@@ -25,9 +25,16 @@ class UserThread extends Thread{
 		try{
 			stringbuffer = new StringBuffer(buffer.readLine());
 			String[] interpret = stringbuffer.toString().split(" ");
-		if(interpret[0].equals(".save")){
-				int diskIndex = os141.diskManager.request();
-				System.out.println(diskIndex);
+			switch(interpret[0]){
+				case ".save":
+					int diskIndex = os141.diskManager.request();
+					System.out.println("we should be saving");
+					break;
+
+				case ".print":
+					int printerIndex = os141.printerManager.request();
+					System.out.println("We should be printing")
+					break;
 			}
 
 		}

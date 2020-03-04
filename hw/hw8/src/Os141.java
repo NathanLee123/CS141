@@ -1,5 +1,4 @@
 package src;
-static Os141 os141;
 
 class Os141 {
 	DiskManager diskManager;
@@ -13,7 +12,7 @@ class Os141 {
 	int NUM_PRINTERS;
 
 	public static void main(String args[]){
-		os141 = new Os141(args);
+		Os141 os141 = new Os141(args);
 	}
 
 	Os141(String args[]){
@@ -25,8 +24,8 @@ class Os141 {
 		userThreads = new UserThread[NUM_USERS];
 		disks = new Disk[NUM_DISKS];
 		printers = new Printer[NUM_PRINTERS];
-		diskManager = new DiskManager(NUM_DISKS);
-		printerManager = new PrinterManager(NUM_PRINTERS);
+		diskManager = new DiskManager(NUM_DISKS, disks);
+		printerManager = new PrinterManager(NUM_PRINTERS, printers);
 		configure(args);
 	}
 
@@ -35,7 +34,7 @@ class Os141 {
 			userFiles[i] = args[i+1];
 		}
 		for (int i = 0; i < NUM_USERS; i++){
-			userThreads[i] = new UserThread(userFiles[i],args[i+1]);
+			userThreads[i] = new UserThread(userFiles[i],diskManager,printerManager);
 		}
 		for (int i = 0; i < NUM_PRINTERS; i++){
 			printers[i] = new Printer(i+1);
