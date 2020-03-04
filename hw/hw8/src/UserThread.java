@@ -13,7 +13,7 @@ class UserThread extends Thread{
 		this.printerManager = printerManager;
 
 		try{
-			buffer = new BufferedReader(new FileReader("include\\"+ newUser));
+			buffer = new BufferedReader(new FileReader("\\include\\"+ newUser));
 		}
 		catch(FileNotFoundException e){
 			System.out.println("FileNotFoundException");
