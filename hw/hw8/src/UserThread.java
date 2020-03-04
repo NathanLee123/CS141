@@ -5,7 +5,7 @@ class UserThread extends Thread{
 	StringBuffer stringbuffer;
 	String user;
 	BufferedReader buffer;
-	UserThread(String newUser, String file){
+	UserThread(String newUser, String file, DiskManager diskManager, PrinterManager printerManager){
 		user = newUser;
 		try{
 			buffer = new BufferedReader(new FileReader(file));
