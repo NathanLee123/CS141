@@ -66,7 +66,7 @@ class UserThread extends Thread{
 		int diskIndex = diskManager.request();
 		FileInfo file = new FileInfo();
 		file.diskNumber = diskIndex;
-		file.startingSector = diskManager.disks[diskIndex].freeSector
+		file.startingSector = diskManager.disks[diskIndex].freeSector;
 		file.fileLength = 0;
 		writeDisk(file, name);
 		diskManager.release(diskIndex);
