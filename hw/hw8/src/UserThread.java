@@ -6,7 +6,7 @@ class UserThread extends Thread{
 	String user;
 	BufferedReader buffer;
 	DiskManager diskManager;
-	PrintManager printManager;
+	PrinterManager printManager;
 	UserThread(String newUser, DiskManager diskManager, PrinterManager printerManager){
 		user = newUser;
 		this.diskManager = diskManager;
