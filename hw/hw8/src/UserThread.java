@@ -56,7 +56,6 @@ class UserThread extends Thread{
 		while(writing){
 			try{
 				stringbuffer = new StringBuffer(buffer.readLine());
-				System.out.println(stringbuffer);
 				if(stringbuffer.toString().equals(".end") == false){
 					diskManager.disks[file.diskNumber].write(file.startingSector,stringbuffer);
 					file.fileLength++;
@@ -69,7 +68,6 @@ class UserThread extends Thread{
 				System.out.println("IOException");
 			}
 		}
-
 
 		directoryManager.enter(new StringBuffer(name),file);
 			
@@ -89,7 +87,7 @@ class UserThread extends Thread{
 	void processPrint(String name){
 		StringBuffer fileName = new StringBuffer(name);
 		PrintJobThread p = new PrintJobThread(diskManager, printerManager,directoryManager, fileName);
-		
+		p.start();
 	}
 
 }
