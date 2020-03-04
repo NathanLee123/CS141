@@ -1,7 +1,5 @@
 package src;
 
-static Os141 os141;
-
 class Os141 {
 	DiskManager diskManager;
 	PrinterManager printerManager;
@@ -14,8 +12,8 @@ class Os141 {
 	int NUM_PRINTERS;
 
 	public static void main(String args[]){
-		os141 = new Os141(args);
-
+		Os141 os141 = new Os141(args);
+		os141.userThreads[0].start();
 	}
 
 	Os141(String args[]){
