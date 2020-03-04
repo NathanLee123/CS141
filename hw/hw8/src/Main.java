@@ -1,6 +1,5 @@
 package src;
 
-static Os141 os141;
 public class Main{
 
 	public static void main(String[] args){

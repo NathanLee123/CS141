@@ -1,5 +1,5 @@
 package src;
-statoc Os141 os141;
+static Os141 os141;
 
 class Os141 {
 	DiskManager diskManager;
