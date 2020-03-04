@@ -1,6 +1,6 @@
 package src;
 
-static class Os141 {
+class Os141 {
 	DiskManager diskManager;
 	PrinterManager printerManager;
 	UserThread userThreads[];
