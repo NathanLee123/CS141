@@ -5,7 +5,7 @@ class Printer {
 	Printer(int id){
 		this.id = id;
 	}
-	void print(StringBuffer data){
+	void print(StringBuff er data){
 		try{
 			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+String.valueOf(id)));
 			out.write(data.toString(),0,data.length());
