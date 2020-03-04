@@ -6,14 +6,14 @@ class UserThread extends Thread{
 	String user;
 	BufferedReader buffer;
 	DiskManager diskManager;
-	PrinterManager printManager;
+	PrinterManager printerManager;
 	UserThread(String newUser, DiskManager diskManager, PrinterManager printerManager){
 		user = newUser;
 		this.diskManager = diskManager;
 		this.printerManager = printerManager;
 
 		try{
-			buffer = new BufferedReader(new FileReader(file));
+			buffer = new BufferedReader(new FileReader(newUser));
 		}
 		catch(FileNotFoundException e){
 			System.out.println("FileNotFoundException");
