@@ -13,7 +13,7 @@ class Disk{
 		}
 	}
 	StringBuffer read(int sector){
-		System.out.println("Reading");
+		System.out.println("Reading data: "+ sectors[sector].toString());
 		return sectors[sector];
 	}
 }
