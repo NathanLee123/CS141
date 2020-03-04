@@ -70,7 +70,7 @@ class UserThread extends Thread{
 			}
 		}
 
-		System.out.println(file.fileLength);
+		diskManager.updateDisk(file.diskNumber,file.fileLength+file.startingSector);
 		directoryManager.enter(new StringBuffer(name),file);
 			
 	}
