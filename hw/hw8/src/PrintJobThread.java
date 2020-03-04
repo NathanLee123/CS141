@@ -16,7 +16,7 @@ class PrintJobThread extends Thread{
 		StringBuffer line = new StringBuffer();
 		int printerIndex = printerManager.request();
 		try{
-			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex)));
+			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex+1)));
 			for(int i = 0 ; i < file.fileLength; i++){
 				line = diskManager.disks[file.diskNumber].read(file.startingSector+i);
 				printerManager.printers[printerIndex].print(out,line);
