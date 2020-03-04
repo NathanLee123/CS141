@@ -87,6 +87,7 @@ class UserThread extends Thread{
 		FileInfo file = new FileInfo();
 		file.diskNumber = diskIndex;
 		file.startingSector = diskManager.disks[diskIndex].freeSector;
+		System.out.println(name+"'s starting Sector is :" + Integer.toString(file.startingSector));
 		file.fileLength = 0;
 		writeDisk(file, name);
 		diskManager.release(diskIndex);
