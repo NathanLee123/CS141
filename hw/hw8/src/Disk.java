@@ -8,7 +8,7 @@ class Disk{
 	int freeSector = 0;
 	int write(int sector, StringBuffer data){
 		for(int i = 0; i < data.length(); i++){
-			sectors[sector].setCharAt(i,data.getCharAt(i));
+			sectors[sector].setCharAt(i,data.charAt(i));
 			freeSector++;
 		}
 		Thread.sleep(200);

@@ -1,3 +1,4 @@
+package src;
 class PrintJobThread extends Thread{
 	FileInfo file;
 	DiskManager diskManager;
@@ -10,7 +11,7 @@ class PrintJobThread extends Thread{
 		file = directoryManager.lookup(fileName);
 	}
 
-	void start(){
+	public void start(){
 		StringBuffer line = new StringBuffer();
 		int printerIndex = printerManager.request();
 		for(int i = 0 ; i < file.fileLength; i++){
