@@ -10,7 +10,7 @@ class Printer {
 		System.out.println("Data printing: " + data.toString());
 		try{
 			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+String.valueOf(id)));
-			out.append(data.toString());
+			out.append(data.toString()+"\n");
 			out.newLine();
 			out.flush();
 			out.close();
