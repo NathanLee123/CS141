@@ -14,7 +14,9 @@ class Os141 {
 
 	public static void main(String args[]){
 		Os141 os141 = new Os141(args);
-		os141.userThreads[0].start();
+		for(int i = 0; i < NUM_USERS;i++){
+			os141.userThreads[i].start();
+		}
 	}
 
 	Os141(String args[]){
