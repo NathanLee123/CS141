@@ -27,6 +27,8 @@ class Os141 {
 		}
 		disks = new Disk[NUM_DISKS];
 		printers = new Printer[NUM_PRINTERS];
+		diskManager = new DiskManager(NUM_DISKS);
+		printerManager = new PrinterManager(NUM_PRINTERS);
 	}
 
 	void configure(){
