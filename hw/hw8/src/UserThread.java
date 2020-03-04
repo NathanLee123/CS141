@@ -5,8 +5,13 @@ class UserThread extends Thread{
 	StringBuffer stringbuffer;
 	String user;
 	BufferedReader buffer;
+	DiskManager diskManager;
+	PrintManager printManager;
 	UserThread(String newUser, DiskManager diskManager, PrinterManager printerManager){
 		user = newUser;
+		this,diskManager = diskManager;
+		this.printerManager = printerManager;
+		
 		try{
 			buffer = new BufferedReader(new FileReader(file));
 		}
