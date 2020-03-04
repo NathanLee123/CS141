@@ -1,5 +1,8 @@
 package src;
 
-class PrinterManager{
+class PrinterManager extends ResourceManager{
+	PrinterManager(int numberOfItems){
+		super(numberOfItems);
+	}
 	
 }
