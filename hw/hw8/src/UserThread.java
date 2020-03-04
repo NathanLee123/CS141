@@ -33,11 +33,10 @@ class UserThread extends Thread{
 		try{
 			stringbuffer = new StringBuffer(buffer.readLine());
 			String[] interpret = stringbuffer.toString().split(" ");
-			System.out.println(interpret[0]);
 			switch(interpret[0]){
 				case ".save":
 					int diskIndex = diskManager.request();
-					System.out.println("we should be saving");
+					System.out.println(diskIndex);
 					break;
 
 				case ".print":
