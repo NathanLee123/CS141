@@ -99,16 +99,16 @@ class UserThread extends Thread{
 		int printerIndex = printerManager.request();
 		try{
 			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex+1)));
+			FileInfo file = directoryManager.lookup(fileName);
+			Disk disk = diskManager.disks[file.diskNumber];
+			Printer printer = printerManager.printers[printerIndex];
+			PrintJobThread p = new PrintJobThread(printer,disk,file, out);
+			p.start();
+			printerManager.release(printerIndex);		
 		}
 		catch(IOException e){
 			System.out.println("Output Stream could not be created");
 		}
-		FileInfo file = directoryManager.lookup(fileName);
-		Disk disk = diskManager.disks[file.diskNumber];
-		Printer printer = printerManager.printers[printerIndex];
-		PrintJobThread p = new PrintJobThread(printer,disk,file, out);
-		p.start();
-		printerManager.release(printerIndex);
 
 	}
 
