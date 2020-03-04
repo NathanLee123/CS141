@@ -20,10 +20,13 @@ class UserThread extends Thread{
 		}
 	}
 
+
 	public void start(){
 		processCommandLines();
 
 	}
+
+
 
 
 	void processCommandLines(){
