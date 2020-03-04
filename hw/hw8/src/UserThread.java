@@ -65,7 +65,7 @@ class UserThread extends Thread{
 			}
 		}
 
-
+		System.out.println(file.fileLength);
 		directoryManager.enter(new StringBuffer(name),file);
 			
 	}
