@@ -9,9 +9,9 @@ class UserThread extends Thread{
 	PrintManager printManager;
 	UserThread(String newUser, DiskManager diskManager, PrinterManager printerManager){
 		user = newUser;
-		this,diskManager = diskManager;
+		this.diskManager = diskManager;
 		this.printerManager = printerManager;
-		
+
 		try{
 			buffer = new BufferedReader(new FileReader(file));
 		}
