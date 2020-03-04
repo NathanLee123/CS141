@@ -3,9 +3,13 @@ import java.lang.StringBuffer;
 import java.util.concurrent.Semaphore;
 
 class Disk{
+	int id;
 	static final int NUM_SECTORS = 1024;
 	Semaphore semaphore = new Semaphore(1,true);
 	StringBuffer sectors[] = new StringBuffer[NUM_SECTORS];
+	Disk(int id){
+		this.id = id;
+	}
 	void write(int sector, StringBuffer data){
 
 	}

@@ -17,14 +17,7 @@ class Os141 {
 		NUM_PRINTERS = Character.getNumericValue(args[NUM_USERS+2].charAt(1));
 
 		userFiles = new String[NUM_USERS];
-		for( int i =  0; i < NUM_USERS; i++){
-			userFiles[i] = args[i+1];
-		}
-		
 		userThreads = new UserThread[NUM_USERS];
-		for (int i = 0; i < NUM_USERS; i++){
-			userThreads[i] = new UserThread(userFiles[i], "/home/namhoonl/cs141/hw/hw8/inputs/" + args[i+1]);
-		}
 		disks = new Disk[NUM_DISKS];
 		printers = new Printer[NUM_PRINTERS];
 		diskManager = new DiskManager(NUM_DISKS);
@@ -32,7 +25,18 @@ class Os141 {
 	}
 
 	void configure(){
-
+		for( int i =  0; i < NUM_USERS; i++){
+			userFiles[i] = args[i+1];
+		}
+		for (int i = 0; i < NUM_USERS; i++){
+			userThreads[i] = new UserThread(userFiles[i], "/home/namhoonl/cs141/hw/hw8/inputs/" + args[i+1]);
+		}
+		for (int i = 0; i < NUM_PRINTERS; i++){
+			printers[i] = new Printer(i+1);
+		}
+		for (int i = 0; i < NUM_DISKS; i++){
+			disks[i] = new Disk(i+1);
+		}
 	}
 
 }

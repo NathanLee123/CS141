@@ -1,4 +1,10 @@
 package src;
 class Printer {
-	void print(StringBuffer data){}  // call sleep
+	String id;
+	Printer(int id){
+		this.id = id;
+	}
+	void print(StringBuffer data){
+
+	}  // call sleep
 }
