@@ -22,9 +22,10 @@ class Os141 {
 		printers = new Printer[NUM_PRINTERS];
 		diskManager = new DiskManager(NUM_DISKS);
 		printerManager = new PrinterManager(NUM_PRINTERS);
+		configure(args);
 	}
 
-	void configure(){
+	void configure(String args[]){
 		for( int i =  0; i < NUM_USERS; i++){
 			userFiles[i] = args[i+1];
 		}
