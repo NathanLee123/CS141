@@ -6,6 +6,6 @@ class DiskManager extends ResourceManager{
 	}
 
 	void write(int diskIndex, StringBuffer data){
-		
+
 	}
 }
