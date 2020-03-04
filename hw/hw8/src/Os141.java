@@ -24,8 +24,8 @@ class Os141 {
 		userThreads = new UserThread[NUM_USERS];
 		disks = new Disk[NUM_DISKS];
 		printers = new Printer[NUM_PRINTERS];
-		diskManager = new DiskManager(NUM_DISKS, disks);
-		printerManager = new PrinterManager(NUM_PRINTERS, printers);
+		diskManager = new DiskManager(NUM_DISKS);
+		printerManager = new PrinterManager(NUM_PRINTERS);
 		configure(args);
 	}
 
