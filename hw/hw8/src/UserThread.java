@@ -27,12 +27,12 @@ class UserThread extends Thread{
 			String[] interpret = stringbuffer.toString().split(" ");
 			switch(interpret[0]){
 				case ".save":
-					int diskIndex = os141.diskManager.request();
+					int diskIndex = diskManager.request();
 					System.out.println("we should be saving");
 					break;
 
 				case ".print":
-					int printerIndex = os141.printerManager.request();
+					int printerIndex = printerManager.request();
 					System.out.println("We should be printing");
 					break;
 			}
