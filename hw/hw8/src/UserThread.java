@@ -31,22 +31,29 @@ class UserThread extends Thread{
 
 
 	void processCommandLines(){
-		try{
-			stringbuffer = new StringBuffer(buffer.readLine());
-			String[] interpret = stringbuffer.toString().split(" ");
-			switch(interpret[0]){
-				case ".save":
-					processSave(interpret[1]);
-					break;
+		boolean processing = true;
+		while(processing){
+			try{
+				stringbuffer = new StringBuffer(buffer.readLine());
+				if(stringbuffer != null){
+					String[] interpret = stringbuffer.toString().split(" ");
+					switch(interpret[0]){
+						case ".save":
+							processSave(interpret[1]);
+							break;
 
-				case ".print":
-					processPrint(interpret[1]);
-					break;
+						case ".print":
+							processPrint(interpret[1]);
+							break;
+					}
+				}
+				else{
+					processing = false;
+				}
 			}
-
-		}
-		catch(IOException e){
-			System.out.println("IOException");
+			catch(IOException e){
+				System.out.println("IOException");
+			}
 		}
 	}
 
