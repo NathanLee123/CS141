@@ -1,6 +1,6 @@
 package src;
 class Printer {
-	String id;
+	int id;
 	Printer(int id){
 		this.id = id;
 	}
