@@ -58,7 +58,7 @@ class UserThread extends Thread{
 				stringbuffer = new StringBuffer(buffer.readLine());
 				System.out.println(stringbuffer.toString().equals(".end"));
 				if(stringbuffer.toString().equals(".end") == false){
-					diskManager.disks[file.diskNumber].write(file.startingSector+fileLength,stringbuffer);
+					diskManager.disks[file.diskNumber].write(file.startingSector+file.fileLength,stringbuffer);
 					file.fileLength++;
 				}
 				else{
