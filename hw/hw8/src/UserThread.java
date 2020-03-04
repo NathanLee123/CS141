@@ -35,24 +35,23 @@ class UserThread extends Thread{
 		while(processing){
 			try{
 				stringbuffer = new StringBuffer(buffer.readLine());
-				if(stringbuffer != null){
-					String[] interpret = stringbuffer.toString().split(" ");
-					switch(interpret[0]){
-						case ".save":
-							processSave(interpret[1]);
-							break;
+				String[] interpret = stringbuffer.toString().split(" ");
+				switch(interpret[0]){
+					case ".save":
+						processSave(interpret[1]);
+						break;
 
-						case ".print":
-							processPrint(interpret[1]);
-							break;
-					}
-				}
-				else{
-					processing = false;
+					case ".print":
+						processPrint(interpret[1]);
+						break;
 				}
 			}
 			catch(IOException e){
 				System.out.println("IOException");
+			}
+
+			catch(NullPointerException e){
+				processing = false;
 			}
 		}
 	}
