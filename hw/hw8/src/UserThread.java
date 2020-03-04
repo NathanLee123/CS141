@@ -33,7 +33,7 @@ class UserThread extends Thread{
 
 				case ".print":
 					int printerIndex = os141.printerManager.request();
-					System.out.println("We should be printing")
+					System.out.println("We should be printing");
 					break;
 			}
 
