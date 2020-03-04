@@ -5,10 +5,8 @@ class UserThread extends Thread{
 	StringBuffer stringbuffer;
 	String user;
 	BufferedReader buffer;
-	Os141 os141;
-	UserThread(String newUser, String file, Os141 os141){
+	UserThread(String newUser, String file){
 		user = newUser;
-		this.os141 = os141;
 		try{
 			buffer = new BufferedReader(new FileReader(file));
 		}

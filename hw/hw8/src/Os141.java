@@ -30,7 +30,7 @@ class Os141 {
 			userFiles[i] = args[i+1];
 		}
 		for (int i = 0; i < NUM_USERS; i++){
-			userThreads[i] = new UserThread(userFiles[i], "/home/namhoonl/cs141/hw/hw8/inputs/" + args[i+1]);
+			userThreads[i] = new UserThread(userFiles[i],args[i+1]);
 		}
 		for (int i = 0; i < NUM_PRINTERS; i++){
 			printers[i] = new Printer(i+1);
