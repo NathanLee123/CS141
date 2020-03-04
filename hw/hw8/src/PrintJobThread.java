@@ -20,7 +20,12 @@ class PrintJobThread extends Thread{
 			line = diskManager.disks[file.diskNumber].read(file.startingSector+i);
 			printerManager.printers[printerIndex].print(out,line);
 		}
-		out.close();
+		try{
+			out.close();
+		}
+		catch(IOException e){
+			System.out.println("File cannot be closed");
+		}
 		printerManager.release(printerIndex);
 	}
 
