@@ -11,5 +11,11 @@ class Printer {
 		out.newLine();
 		out.flush();
 		out.close();
+		try{
+			Thread.sleep(2750);
+		}
+		catch(InterruptedException e){
+			System.out.println("InterruptedException");
+		}
 	}  // call sleep
 }

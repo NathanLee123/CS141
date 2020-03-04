@@ -11,7 +11,12 @@ class Disk{
 			sectors[sector].setCharAt(i,data.charAt(i));
 			freeSector++;
 		}
-		Thread.sleep(200);
+		try{
+			Thread.sleep(200);
+		}
+		catch(InterruptedException e){
+			System.out.println("InterruptedException");
+		}
 	}
 	StringBuffer read(int sector){
 		return sectors[sector];
