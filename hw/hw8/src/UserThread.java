@@ -52,22 +52,19 @@ class UserThread extends Thread{
 
 
 	void writeDisk(FileInfo file, String name){
-		boolean writing = true;
-		while(writing){
+		for(int i = 0 ; i < file.fileLength; i++){
 			try{
 				stringbuffer = new StringBuffer(buffer.readLine());
 				if(stringbuffer.toString().equals(".end") == false){
-					diskManager.disks[file.diskNumber].write(file.startingSector,stringbuffer);
+					diskManager.disks[file.diskNumber].write(file.startingSector+i,stringbuffer);
 					file.fileLength++;
-				}
-				else{
-					writing = false;
 				}
 			}
 			catch(IOException e){
 				System.out.println("IOException");
 			}
 		}
+
 
 		directoryManager.enter(new StringBuffer(name),file);
 			

@@ -7,7 +7,9 @@ class Disk{
 	StringBuffer sectors[] = new StringBuffer[NUM_SECTORS];
 	int freeSector = 0;
 	void write(int sector, StringBuffer data){
-		System.out.println(data.toString());
+		for(int i = 0 ; i < data.length(); i++){
+			sectors[sector].setCharAt(i, data.CharAt(i));
+		}
 	}
 	StringBuffer read(int sector){
 		return sectors[sector];
