@@ -1,8 +1,10 @@
 package src;
 
 class PrinterManager extends ResourceManager{
-	PrinterManager(int numberOfItems){
+	Printer printers[];
+	PrinterManager(int numberOfItems, Printer printers[]){
 		super(numberOfItems);
+		this.printers = printers;
 	}
 	
 }

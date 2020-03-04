@@ -7,11 +7,12 @@ class UserThread extends Thread{
 	BufferedReader buffer;
 	DiskManager diskManager;
 	PrinterManager printerManager;
-	UserThread(String newUser, DiskManager diskManager, PrinterManager printerManager){
+	DirectoryManager directoryManager;
+	UserThread(String newUser, DiskManager diskManager, PrinterManager printerManager, DirectoryManager directoryManager){
 		user = newUser;
 		this.diskManager = diskManager;
 		this.printerManager = printerManager;
-
+		this.directoryManager = directoryManager;
 		try{
 			buffer = new BufferedReader(new FileReader("./inputs/" + newUser));
 		}
@@ -35,13 +36,11 @@ class UserThread extends Thread{
 			String[] interpret = stringbuffer.toString().split(" ");
 			switch(interpret[0]){
 				case ".save":
-					int diskIndex = diskManager.request();
-					System.out.println(diskIndex);
+					processSave(interpret[1]);
 					break;
 
 				case ".print":
-					int printerIndex = printerManager.request();
-					System.out.println("We should be printing");
+					processPrint(interpret[1]);
 					break;
 			}
 
@@ -49,6 +48,35 @@ class UserThread extends Thread{
 		catch(IOException e){
 			System.out.println("IOException");
 		}
+	}
+
+
+	void writeDisk(FileInfo file, String name){
+		while(stringbuffer.equals(".end") == false){
+			stringbuffer = new StringBuffer(buffer.readLine());
+			diskManager.disks[file.diskNumber].write(file.startingSector,stringbuffer);
+			file.fileLength++;
+		}
+
+		directoryManager.enter(new StringBuffer(name),file);
+			
+	}
+
+	void processSave(String name){
+		int diskIndex = diskManager.request();
+		FileInfo file = new FileInfo();
+		file.diskNumber = diskIndex;
+		file.startingSector = diskManager.disks[diskIndex].freeSector
+		file.fileLength = 0;
+		writeDisk(file, name);
+		diskManager.release(diskIndex);
+
+	}
+
+	void processPrint(String name){
+		StringBuffer fileName = new StringBuffer(name);
+		PrinterJobThread p = new PrinterJobThread(diskManager, printerManager,directoryManager, fileName);
+		
 	}
 
 }

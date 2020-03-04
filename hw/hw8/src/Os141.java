@@ -1,6 +1,7 @@
 package src;
-
+import java.io.*;
 class Os141 {
+	DirectoryManager directoryManager;
 	DiskManager diskManager;
 	PrinterManager printerManager;
 	UserThread userThreads[];
@@ -25,8 +26,9 @@ class Os141 {
 		userThreads = new UserThread[NUM_USERS];
 		disks = new Disk[NUM_DISKS];
 		printers = new Printer[NUM_PRINTERS];
-		diskManager = new DiskManager(NUM_DISKS);
-		printerManager = new PrinterManager(NUM_PRINTERS);
+		diskManager = new DiskManager(NUM_DISKS, disks);
+		printerManager = new PrinterManager(NUM_PRINTERS,printers);
+		directoryManager = new DirectoryManager();
 		configure(args);
 	}
 
@@ -35,13 +37,21 @@ class Os141 {
 			userFiles[i] = args[i+1];
 		}
 		for (int i = 0; i < NUM_USERS; i++){
-			userThreads[i] = new UserThread(userFiles[i],diskManager,printerManager);
+			userThreads[i] = new UserThread(userFiles[i],diskManager,printerManager, directoryManager);
 		}
 		for (int i = 0; i < NUM_PRINTERS; i++){
 			printers[i] = new Printer(i+1);
+			String printerIndex = Integer.toString(i+1);
+			File printerFile = new File("PRINTER"+printerIndex);
+			try{
+				printerFile.createNewFile();
+			}
+			catch (IOException e){
+				System.out.println("Printer file could not be created");
+			}
 		}
 		for (int i = 0; i < NUM_DISKS; i++){
-			disks[i] = new Disk(i+1);
+			disks[i] = new Disk();
 		}
 	}
 

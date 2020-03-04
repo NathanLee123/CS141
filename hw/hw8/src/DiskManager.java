@@ -1,11 +1,9 @@
 package src;
-
+import java.util.*;
 class DiskManager extends ResourceManager{
-	DiskManager(int numberOfItems){
+	Disk disks[];
+	DiskManager(int numberOfItems, Disk disks[]){
 		super(numberOfItems);
-	}
-
-	void write(int diskIndex, StringBuffer data){
-
+		this.disks = disks;
 	}
 }
