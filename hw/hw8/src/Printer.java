@@ -5,15 +5,13 @@ class Printer {
 	Printer(int id){
 		this.id = id;
 	}
-	void print(StringBuffer data){
+	void print(BufferedWriter out, StringBuffer data){
 		System.out.println("Printing to PRINTER"+Integer.toString(id));
-		System.out.println("Data printing: " + data.toString());
+		System.out.println("Data printing: " + data.toString())
 		try{
-			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+String.valueOf(id)));
-			out.append(data.toString()+"\n");
+			out.write(data.toString(),0,data.length());
 			out.newLine();
 			out.flush();
-			out.close();
 			Thread.sleep(2750);
 		}
 		catch(InterruptedException e){

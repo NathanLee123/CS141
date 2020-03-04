@@ -14,10 +14,12 @@ class PrintJobThread extends Thread{
 	public void start(){
 		StringBuffer line = new StringBuffer();
 		int printerIndex = printerManager.request();
+		BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex)));
 		for(int i = 0 ; i < file.fileLength; i++){
 			line = diskManager.disks[file.diskNumber].read(file.startingSector+i);
-			printerManager.printers[printerIndex].print(line);
+			printerManager.printers[printerIndex].print(out,line);
 		}
+		out.close();
 		printerManager.release(printerIndex);
 	}
 
