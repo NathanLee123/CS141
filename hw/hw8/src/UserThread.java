@@ -75,7 +75,7 @@ class UserThread extends Thread{
 
 	void processPrint(String name){
 		StringBuffer fileName = new StringBuffer(name);
-		PrinterJobThread p = new PrinterJobThread(diskManager, printerManager,directoryManager, fileName);
+		PrintJobThread p = new PrintJobThread(diskManager, printerManager,directoryManager, fileName);
 		
 	}
 

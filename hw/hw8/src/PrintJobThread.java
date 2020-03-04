@@ -4,7 +4,7 @@ class PrintJobThread extends Thread{
 	DiskManager diskManager;
 	PrinterManager printerManager;
 	DirectoryManager directoryManager;
-	PrintJobThread(DiskManager diskManager, PrinterManager printerManager, DirectoryManager directoryManager, StingBuffer fileName){
+	PrintJobThread(DiskManager diskManager, PrinterManager printerManager, DirectoryManager directoryManager, StringBuffer fileName){
 		this.diskManager = diskManager;
 		this.directoryManager = directoryManager;
 		this.printerManager = printerManager;
