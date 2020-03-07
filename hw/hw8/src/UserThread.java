@@ -77,8 +77,6 @@ class UserThread extends Thread{
 				System.out.println("IOException");
 			}
 		}
-
-		diskManager.updateDisk(file.diskNumber,file.fileLength+file.startingSector);
 		directoryManager.enter(new StringBuffer(name),file);
 			
 	}
