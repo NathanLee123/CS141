@@ -38,10 +38,12 @@ class UserThread extends Thread{
 				String[] interpret = stringbuffer.toString().split(" ");
 				switch(interpret[0]){
 					case ".save":
+						System.out.println("Saving " + interpret[1]);
 						processSave(interpret[1]);
 						break;
 
 					case ".print":
+						System.out.println("Printing " + interpret[1]);
 						processPrint(interpret[1]);
 						break;
 				}
@@ -62,7 +64,7 @@ class UserThread extends Thread{
 		while(writing){
 			try{
 				stringbuffer = new StringBuffer(buffer.readLine());
-				System.out.println(stringbuffer.toString().equals(".end"));
+				//System.out.println(stringbuffer.toString().equals(".end"));
 				if(stringbuffer.toString().equals(".end") == false){
 					diskManager.disks[file.diskNumber].write(file.startingSector+file.fileLength,stringbuffer);
 					file.fileLength++;
@@ -94,7 +96,6 @@ class UserThread extends Thread{
 	}
 
 	void processPrint(String name){
-		System.out.println("Printing " + name);
 		StringBuffer fileName = new StringBuffer(name);
 		int printerIndex = printerManager.request();
 		try{
