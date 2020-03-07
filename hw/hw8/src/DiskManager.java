@@ -6,8 +6,4 @@ class DiskManager extends ResourceManager{
 		super(numberOfItems);
 		this.disks = disks;
 	}
-
-	void updateDisk(int diskIndex, int freeSector){
-		disks[diskIndex].freeSector = freeSector;
-	}
 }
