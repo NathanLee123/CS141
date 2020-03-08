@@ -9,7 +9,8 @@ class Printer {
 		System.out.println("Printing to PRINTER"+Integer.toString(id));
 		//System.out.println("Data printing: " + data.toString());
 		try{
-			out.write(data.toString(),0,data.length());
+			out.append(data.toString());
+			//out.write(data.toString(),0,data.length());
 			out.newLine();
 			out.flush();
 			Thread.sleep(2750);
