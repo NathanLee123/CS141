@@ -62,7 +62,7 @@ class Os141 {
 			}
 		}
 		for (int i = 0; i < NUM_DISKS; i++){
-			disks[i] = new Disk();
+			disks[i] = new Disk(i+1);
 		}
 	}
 
