@@ -8,9 +8,9 @@ class Disk{
 	int freeSector = 0;
 	void write(int sector, StringBuffer data){
 		//System.out.println("Writing to sector" + Integer.toString(sector) +": " + data.toString());
-		for(int i = 0 ; i < data.length(); i++){
-			sectors[sector] = new StringBuffer(data.toString());
-		}
+		//for(int i = 0 ; i < data.length(); i++){
+		sectors[sector] = new StringBuffer(data.toString());
+		//}
 		freeSector++;
 	}
 	StringBuffer read(int sector){
