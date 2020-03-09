@@ -106,7 +106,7 @@ class UserThread extends Thread{
 			Disk disk = diskManager.disks[file.diskNumber];
 			int printerIndex = printerManager.request();
 			Printer printer = printerManager.printers[printerIndex];
-			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex+1)));
+			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex+1), true));
 			PrintJobThread p = new PrintJobThread(printer,disk,file, out);
 			p.start();
 			try{
