@@ -40,11 +40,14 @@ class UserThread extends Thread{
 					case ".save":
 						System.out.println("Saving " + interpret[1]);
 						processSave(interpret[1]);
+						System.out.println("Done Saving " + interpret[1]);
 						break;
 
 					case ".print":
 						System.out.println("Printing " + interpret[1]);
 						processPrint(interpret[1]);
+						System.out.println("Done Printing " + interpret[1]);
+
 						break;
 				}
 			}
@@ -61,12 +64,13 @@ class UserThread extends Thread{
 
 	void writeDisk(FileInfo file, String name){
 		boolean writing = true;
+		Disk disk = diskManager.disks[file.diskNumber];
+		System.out.println(name + " is being written to disk" + Integer.toString(disk.id));
+
 		while(writing){
 			try{
 				stringbuffer = new StringBuffer(buffer.readLine());
-				//System.out.println(stringbuffer.toString().equals(".end"));
 				if(stringbuffer.toString().equals(".end") == false){
-					Disk disk = diskManager.disks[file.diskNumber];
 					disk.write(disk.freeSector,stringbuffer);
 					file.fileLength++;
 				}
@@ -94,17 +98,25 @@ class UserThread extends Thread{
 
 	}
 
+
+	void writePrint(FileInfo file){
+		boolean printing = true;
+		int printerIndex = printerManager.request();
+		Printer printer = printerManager.printers[printerIndex];
+		PrintJobThread p = new PrintJobThread(printer,disk,file, out);
+		p.start();
+		p.join();
+		printerManager.release(printerIndex);
+	}
+
+
+
 	void processPrint(String name){
 		StringBuffer fileName = new StringBuffer(name);
-		int printerIndex = printerManager.request();
 		try{
 			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex+1)));
-			FileInfo file = directoryManager.lookup(fileName);
-			Disk disk = diskManager.disks[file.diskNumber];
-			Printer printer = printerManager.printers[printerIndex];
-			PrintJobThread p = new PrintJobThread(printer,disk,file, out);
-			p.start();
-			printerManager.release(printerIndex);		
+			FileInfo file = directoryManager.lookup(fileName);	
+			writePrint(file);	
 		}
 		catch(IOException e){
 			System.out.println("Output Stream could not be created");

@@ -12,7 +12,7 @@ class PrintJobThread extends Thread{
 		this.out = out;
 	}
 
-	public void start(){
+	public void run(){
 		StringBuffer line = new StringBuffer();
 		try{
 			for(int i = 0 ; i < file.fileLength; i++){
