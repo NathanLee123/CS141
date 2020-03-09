@@ -22,7 +22,7 @@ class UserThread extends Thread{
 	}
 
 
-	public void start(){
+	public void run(){
 		processCommandLines();
 
 	}
