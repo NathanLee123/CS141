@@ -13,10 +13,10 @@ class Disk{
 	void write(int sector, StringBuffer data){
 		//System.out.println("Writing to sector" + Integer.toString(sector) +": " + data.toString());
 		//for(int i = 0 ; i < data.length(); i++){
-		System.out.println("Disk" + Integer.toString(id) + " is writing to sector:" + Integer.toString(sector));
+		//System.out.println("Disk" + Integer.toString(id) + " is writing to sector:" + Integer.toString(sector));
 		sectors[sector] = new StringBuffer(data.toString());
 		freeSector++;
-		System.out.println("Disk" + Integer.toString(id) + "'s freeSector is now at: " + Integer.toString(freeSector));
+		//System.out.println("Disk" + Integer.toString(id) + "'s freeSector is now at: " + Integer.toString(freeSector));
 		//}
 
 	}

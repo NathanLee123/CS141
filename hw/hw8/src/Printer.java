@@ -6,7 +6,7 @@ class Printer {
 		this.id = id;
 	}
 	void print(BufferedWriter out, StringBuffer data){
-		System.out.println("Printing to PRINTER"+Integer.toString(id));
+		//System.out.println("Printing to PRINTER"+Integer.toString(id));
 		//System.out.println("Data printing: " + data.toString());
 		try{
 			out.append(data.toString());
