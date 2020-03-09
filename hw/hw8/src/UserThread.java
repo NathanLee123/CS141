@@ -109,7 +109,12 @@ class UserThread extends Thread{
 			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex+1)));
 			PrintJobThread p = new PrintJobThread(printer,disk,file, out);
 			p.start();
-			p.join();
+			try{
+				p.join();
+			}
+			catch(InterruptedException e){
+				System.out.println("Joining Printer Thread was Interrupted");
+			}
 			printerManager.release(printerIndex);	
 		}
 		catch(IOException e){
