@@ -16,7 +16,7 @@ class Os141 {
 		Os141 os141 = new Os141(args);
 		for(int i = 0; i < os141.NUM_USERS;i++){
 			System.out.println("User" + Integer.toString(i+1) + " is starting");
-			os141.userThreads[0].start();
+			os141.userThreads[i].start();
 		}
 		for(int i = 0; i < os141.NUM_USERS;i++){
 			try{
