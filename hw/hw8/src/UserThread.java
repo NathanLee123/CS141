@@ -102,11 +102,11 @@ class UserThread extends Thread{
 	void processPrint(String name){
 		StringBuffer fileName = new StringBuffer(name);
 		try{
-			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex+1)));
 			FileInfo file = directoryManager.lookup(fileName);
 			Disk disk = diskManager.disks[file.diskNumber];
 			int printerIndex = printerManager.request();
 			Printer printer = printerManager.printers[printerIndex];
+			BufferedWriter out = new BufferedWriter(new FileWriter("PRINTER"+Integer.toString(printerIndex+1)));
 			PrintJobThread p = new PrintJobThread(printer,disk,file, out);
 			p.start();
 			p.join();
